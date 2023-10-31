@@ -5,20 +5,25 @@ using UnityEngine.UIElements;
 
 public class RubyController : MonoBehaviour
 {
+    private object horizontal;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+      //QualitySettings.vSyncCount = 0;
+      //Application.targetFrameRate = 10;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float horizantal = Input.GetAxis("Horizantal");
-        Debug.Log(horizontal);
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
         Vector2 position = transform.position;
-        position.x = position.x + 0.1f;
+        position.x = position.x + 3.0f * horizontal * Time.deltaTime;
+        position.y = position.y + 3.0f * vertical * Time.deltaTime;
+       
         transform.position = position; 
     }
-}
+} 
