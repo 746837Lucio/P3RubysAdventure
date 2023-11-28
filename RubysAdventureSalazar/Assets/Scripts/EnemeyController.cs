@@ -38,10 +38,13 @@ public class EnemeyController : MonoBehaviour
         if(vertical)
         {
             animator.SetFloat("MoveX", 0);
+            animator.SetFloat("MoveY", direction);
             position.y = position.y + Time.deltaTime * speed * direction;
         }
         else
         {
+            animator.SetFloat("MoveX", direction);
+            animator.SetFloat("MoveY", 0);
             position.x = position.x + Time.deltaTime * speed * direction;
         }
         
